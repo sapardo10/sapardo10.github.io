@@ -63,6 +63,11 @@ if (contactSection) {
 
 // Form submission handler
 document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar el i18n si aún no está listo
+    if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+    }
+
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 

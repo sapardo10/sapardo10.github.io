@@ -68,28 +68,17 @@ const translations = {
 class i18nManager {
     constructor() {
         this.currentLanguage = this.detectLanguage();
-        this.init();
+        this.initWhenReady();
     }
 
-    detectLanguage() {
-        // Verificar si hay un idioma guardado en localStorage
-        const savedLanguage = localStorage.getItem('language');
-        if (savedLanguage && Object.keys(translations).includes(savedLanguage)) {
-            return savedLanguage;
+    initWhenReady() {
+        // Si el documento ya está completamente cargado
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            this.init();
+        } else {
+            // Esperar a que el DOM esté listo
+            document.addEventListener('DOMContentLoaded', () => this.init());
         }
-
-        // Detectar el idioma del navegador
-        const browserLanguage = navigator.language || navigator.userLanguage;
-        const languageCode = browserLanguage.split('-')[0].toLowerCase();
-
-        if (languageCode === 'es') {
-            return 'es';
-        } else if (languageCode === 'en') {
-            return 'en';
-        }
-
-        // Por defecto, español
-        return 'es';
     }
 
     init() {
@@ -158,9 +147,35 @@ class i18nManager {
 
         return translation || key;
     }
+
+    detectLanguage() {
+        // Verificar si hay un idioma guardado en localStorage
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage && Object.keys(translations).includes(savedLanguage)) {
+            return savedLanguage;
+        }
+
+        // Detectar el idioma del navegador
+        const browserLanguage = navigator.language || navigator.userLanguage;
+        const languageCode = browserLanguage.split('-')[0].toLowerCase();
+
+        if (languageCode === 'es') {
+            return 'es';
+        } else if (languageCode === 'en') {
+            return 'en';
+        }
+
+        // Por defecto, español
+        return 'es';
+    }
 }
+
+// Crear instancia global inmediatamente
+window.i18n = new i18nManager();
 
 // Inicializar el gestor de idiomas cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    window.i18n = new i18nManager();
+    if (window.i18n) {
+        window.i18n.init();
+    }
 });
