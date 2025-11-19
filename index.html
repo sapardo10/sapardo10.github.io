@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Desarrollador de aplicaciones móviles Android. Explora mis aplicaciones en Google Play Store.">
+    <meta name="description" content="Desarrollador de aplicaciones móviles Android y Flutter. Explora mis aplicaciones en Google Play Store.">
     <meta name="theme-color" content="#1f2937">
-    <title>Sapardo - Desarrollador de Aplicaciones Android</title>
+    <title>Sergio Pardo - Desarrollador de Aplicaciones Android y Flutter</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +17,16 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
-                <span class="logo">Sapardo</span>
+                <span class="logo">Sergio Pardo</span>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </div>
             <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#apps">Mis Apps</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+                <li><a href="#apps" data-i18n="nav.apps">Mis Apps</a></li>
+                <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -30,10 +34,10 @@
     <header class="hero" id="inicio">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Hola, soy <span class="gradient-text">Sapardo</span></h1>
-                <p class="hero-subtitle">Desarrollador de aplicaciones móviles Android</p>
-                <p class="hero-description">Creo aplicaciones innovadoras y funcionales que mejoran la vida de millones de usuarios en Google Play Store.</p>
-                <a href="#apps" class="cta-button">Explorar mis aplicaciones</a>
+                <h1 class="hero-title"><span data-i18n="hero.hello">Hola, soy</span> <span class="gradient-text">Sergio Pardo</span></h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Desarrollador de aplicaciones móviles Android y Flutter</p>
+                <p class="hero-description" data-i18n="hero.description">Creo aplicaciones innovadoras y funcionales que mejoran la vida de millones de usuarios en Google Play Store.</p>
+                <a href="#apps" class="cta-button" data-i18n="hero.cta">Explorar mis aplicaciones</a>
             </div>
             <div class="hero-illustration">
                 <div class="device-frame">
@@ -45,19 +49,19 @@
 
     <section class="apps-section" id="apps">
         <div class="container">
-            <h2 class="section-title">Mis Aplicaciones</h2>
-            <p class="section-subtitle">Aplicaciones disponibles en Google Play Store</p>
+            <h2 class="section-title" data-i18n="apps.title">Mis Aplicaciones</h2>
+            <p class="section-subtitle" data-i18n="apps.subtitle">Aplicaciones disponibles en Google Play Store</p>
             
             <div class="apps-grid">
                 <article class="app-card">
                     <div class="app-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                     <h3 class="app-name">Pausactive</h3>
-                    <p class="app-description">Pausactive - Healthy breaks es una aplicación diseñada para recordarte tomar descansos saludables durante tu jornada.</p>
+                    <p class="app-description" data-i18n="apps.pausactive.description">Pausactive - Healthy breaks es una aplicación diseñada para recordarte tomar descansos saludables durante tu jornada.</p>
                     <div class="app-tags">
-                        <span class="tag">Salud</span>
-                        <span class="tag">Productividad</span>
+                        <span class="tag" data-i18n="apps.tags.health">Salud</span>
+                        <span class="tag" data-i18n="apps.tags.productivity">Productividad</span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.pausactive.pausactive" class="app-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.pausactive.pausactive" class="app-link" target="_blank" rel="noopener noreferrer" data-i18n="apps.link">
                         Ver en Play Store
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M8.5 1.5H14.5V7.5M14.5 1.5L2 14M6.5 4H3.5V12.5H12V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -68,12 +72,12 @@
                 <article class="app-card">
                     <div class="app-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
                     <h3 class="app-name">PingPartner</h3>
-                    <p class="app-description">PingPartner te ayuda a monitorizar la conexión a internet y realizar pruebas de velocidad de forma rápida y sencilla.</p>
+                    <p class="app-description" data-i18n="apps.pingpartner.description">PingPartner te ayuda a monitorizar la conexión a internet y realizar pruebas de velocidad de forma rápida y sencilla.</p>
                     <div class="app-tags">
-                        <span class="tag">Utilidades</span>
-                        <span class="tag">Red</span>
+                        <span class="tag" data-i18n="apps.tags.utilities">Utilidades</span>
+                        <span class="tag" data-i18n="apps.tags.network">Red</span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.pingpartner" class="app-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.pingpartner" class="app-link" target="_blank" rel="noopener noreferrer" data-i18n="apps.link">
                         Ver en Play Store
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M8.5 1.5H14.5V7.5M14.5 1.5L2 14M6.5 4H3.5V12.5H12V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,12 +88,12 @@
                 <article class="app-card">
                     <div class="app-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
                     <h3 class="app-name">TripList</h3>
-                    <p class="app-description">TripList es tu compañero perfecto para planificar, organizar y disfrutar de tus viajes con listas de empaque inteligentes.</p>
+                    <p class="app-description" data-i18n="apps.triplist.description">TripList es tu compañero perfecto para planificar, organizar y disfrutar de tus viajes con listas de empaque inteligentes.</p>
                     <div class="app-tags">
-                        <span class="tag">Viajes</span>
-                        <span class="tag">Organizador</span>
+                        <span class="tag" data-i18n="apps.tags.travel">Viajes</span>
+                        <span class="tag" data-i18n="apps.tags.organizer">Organizador</span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.triplist" class="app-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.triplist" class="app-link" target="_blank" rel="noopener noreferrer" data-i18n="apps.link">
                         Ver en Play Store
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M8.5 1.5H14.5V7.5M14.5 1.5L2 14M6.5 4H3.5V12.5H12V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -102,36 +106,38 @@
 
     <section class="contact-section" id="contacto">
         <div class="container">
-            <h2 class="section-title">Ponte en Contacto</h2>
-            <p class="section-subtitle">¿Tienes alguna pregunta? Me encantaría saber de ti</p>
+            <h2 class="section-title" data-i18n="contact.title">Ponte en Contacto</h2>
+            <p class="section-subtitle" data-i18n="contact.subtitle">¿Tienes alguna pregunta? Me encantaría saber de ti</p>
             
             <div class="contact-content">
-                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <label for="name">Nombre</label>
+                        <label for="name" data-i18n="contact.form.name">Nombre</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" data-i18n="contact.form.email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensaje</label>
+                        <label for="message" data-i18n="contact.form.message">Mensaje</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="submit-button">Enviar Mensaje</button>
+                    <button type="submit" class="submit-button" data-i18n="contact.form.submit">Enviar Mensaje</button>
                 </form>
+                <p class="form-status" id="formStatus"></p>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Sapardo. Todos los derechos reservados.</p>
-            <p>Desarrollador de aplicaciones Android | <a href="#inicio">Volver arriba</a></p>
+            <p>&copy; 2025 Sergio Pardo. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+            <p><span data-i18n="footer.developer">Desarrollador de aplicaciones Android</span> | <a href="#inicio" data-i18n="footer.top">Volver arriba</a></p>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

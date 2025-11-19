@@ -61,14 +61,57 @@ if (contactSection) {
     observer.observe(contactSection);
 }
 
-// Form submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        // El formulario se envía a Formspree
-        // Puedes personalizar este código si lo deseas
-    });
-}
+// Form submission handler
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Enviar a través de Formspree
+            try {
+                const response = await fetch('https://formspree.io/f/xyzzywyb', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        name: name,
+                        email: email,
+                        message: message,
+                        _to: 'carnifis@gmail.com',
+                    })
+                });
+
+                if (response.ok) {
+                    const successMsg = window.i18n ? window.i18n.translate('contact.success') : 'Mensaje enviado correctamente!';
+                    formStatus.textContent = successMsg;
+                    formStatus.style.color = '#10b981';
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                    }, 5000);
+                } else {
+                    const errorMsg = window.i18n ? window.i18n.translate('contact.error') : 'Error al enviar el mensaje';
+                    formStatus.textContent = errorMsg;
+                    formStatus.style.color = '#ef4444';
+                }
+            } catch (error) {
+                const errorMsg = window.i18n ? window.i18n.translate('contact.error') : 'Error al enviar el mensaje';
+                formStatus.textContent = errorMsg;
+                formStatus.style.color = '#ef4444';
+            }
+        });
+    }
+});
 
 // Animación de entrada
 window.addEventListener('load', () => {

@@ -73,6 +73,9 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .nav-menu {
@@ -90,6 +93,37 @@ body {
 
 .nav-menu a:hover {
     color: var(--primary-color);
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    border-left: 1px solid var(--border-color);
+    padding-left: 1rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-color: transparent;
 }
 
 /* Hero Section */
@@ -355,6 +389,13 @@ body {
 
 .submit-button:hover {
     opacity: 0.9;
+}
+
+.form-status {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 500;
+    min-height: 20px;
 }
 
 /* Footer */
