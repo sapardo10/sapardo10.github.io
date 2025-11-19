@@ -125,9 +125,7 @@ body {
 }
 
 .lang-btn.active {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border-color: transparent;
+    border-color: var(--primary-color);
 }
 
 /* Hero Section */
