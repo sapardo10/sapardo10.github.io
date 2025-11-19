@@ -6,6 +6,7 @@
     <meta name="description" content="Sergio Pardo - Desarrollador de aplicaciones móviles Android y Flutter">
     <meta name="theme-color" content="#1f2937">
     <title>Sergio Pardo - Desarrollador Android</title>
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +27,7 @@
             <ul class="nav-menu">
                 <li><a href="#inicio" class="lang" data-es="Inicio" data-en="Home">Inicio</a></li>
                 <li><a href="#apps" class="lang" data-es="Mis Apps" data-en="My Apps">Mis Apps</a></li>
+                <li><a href="#cafe" class="lang" data-es="Apoyar" data-en="Support">Apoyar</a></li>
                 <li><a href="#contacto" class="lang" data-es="Contacto" data-en="Contact">Contacto</a></li>
             </ul>
         </div>
@@ -104,31 +106,39 @@
         </div>
     </section>
 
-    <section class="contact-section" id="contacto">
-        <div class="container">
-            <h2 class="section-title lang" data-es="Ponte en Contacto" data-en="Get in Touch"></h2>
-            <p class="section-subtitle lang" data-es="¿Tienes alguna pregunta? Me encantaría saber de ti" data-en="Do you have any questions? I'd love to hear from you"></p>
-            
-            <div class="contact-content">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="lang" data-es="Nombre" data-en="Name"></label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="lang" data-es="Email" data-en="Email"></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="lang" data-es="Mensaje" data-en="Message"></label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button lang" data-es="Enviar Mensaje" data-en="Send Message"></button>
-                </form>
-                <p class="form-status" id="formStatus"></p>
+    <div class="sections-wrapper">
+        <section class="contact-section" id="contacto">
+            <div class="container">
+                <h2 class="section-title lang" data-es="Ponte en Contacto" data-en="Get in Touch"></h2>
+                <p class="section-subtitle lang" data-es="¿Tienes alguna pregunta? Me encantaría saber de ti" data-en="Do you have any questions? I'd love to hear from you"></p>
+                
+                <div class="contact-content">
+                    <a href="mailto:carnifis@gmail.com" class="email-link">
+                        <span class="email-icon">✉</span>
+                        <span class="email-text">carnifis@gmail.com</span>
+                    </a>
+                    <p class="contact-hint lang" data-es="Haz clic para enviarme un correo directo" data-en="Click to send me an email directly"></p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="coffee-section" id="cafe">
+            <div class="container">
+                <h2 class="section-title lang" data-es="Apoya mi trabajo" data-en="Support my work"></h2>
+                <p class="section-subtitle lang" data-es="Si te gustan mis aplicaciones, considera apoyarme" data-en="If you like my apps, consider supporting me"></p>
+                
+                <div class="coffee-content">
+                    <div class="coffee-qr">
+                        <img src="assets/images/qr-code.png" alt="QR Code" class="qr-image">
+                    </div>
+                    <div class="coffee-info">
+                        <p class="coffee-text lang" data-es="Puedes comprarme un café en" data-en="You can buy me a coffee at"></p>
+                        <a href="https://buymeacoffee.com/carnifis" target="_blank" rel="noopener noreferrer" class="coffee-link">buymeacoffee.com/carnifis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer class="footer">
         <div class="container">

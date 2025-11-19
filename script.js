@@ -21,9 +21,9 @@ function updateLanguage(lang) {
     document.querySelectorAll('.lang').forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
         if (text) {
-            if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') {
-                el.value = text;
-            } else if (el.tagName === 'A' && el.classList.contains('cta-button')) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = text;
+            } else if (el.tagName === 'LABEL') {
                 el.textContent = text;
             } else {
                 el.textContent = text;
@@ -92,54 +92,18 @@ if (contactSection) {
     observer.observe(contactSection);
 }
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const formStatus = document.getElementById('formStatus');
-    const currentLang = localStorage.getItem('currentLang') || 'es';
-    
-    const successMsg = currentLang === 'en' ? 'Message sent successfully!' : 'Mensaje enviado correctamente!';
-    const errorMsg = currentLang === 'en' ? 'Error sending message' : 'Error al enviar el mensaje';
-    
-    try {
-        const response = await fetch('https://formspree.io/f/xyzzywyb', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                name: name,
-                email: email,
-                message: message,
-                _to: 'carnifis@gmail.com',
-            })
-        });
-
-        if (response.ok) {
-            formStatus.textContent = successMsg;
-            formStatus.style.color = '#10b981';
-            document.getElementById('contactForm').reset();
-            
-            setTimeout(() => {
-                formStatus.textContent = '';
-            }, 5000);
-        } else {
-            formStatus.textContent = errorMsg;
-            formStatus.style.color = '#ef4444';
-        }
-    } catch (error) {
-        formStatus.textContent = errorMsg;
-        formStatus.style.color = '#ef4444';
-    }
-});
+const coffeeSection = document.querySelector('.coffee-section');
+if (coffeeSection) {
+    coffeeSection.style.opacity = '0';
+    coffeeSection.style.transform = 'translateY(20px)';
+    coffeeSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(coffeeSection);
+}
 
 // Inicializar idioma al cargar
 document.addEventListener('DOMContentLoaded', () => {
     const lang = detectLanguage();
     updateLanguage(lang);
 });
+
+
