@@ -367,6 +367,21 @@
 
         .dl-btn-arrow { font-size: 18px; opacity: 0.6; }
 
+        .another-btn {
+            width: 100%;
+            margin-top: 4px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 13px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .another-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
         /* ── HOW TO ── */
         .how-to {
             margin-bottom: 32px;
@@ -551,6 +566,7 @@
                 </div>
                 <span class="dl-btn-arrow">↓</span>
             </a>
+            <button class="another-btn" id="anotherBtn">⟳ Download another video</button>
         </div>
     </div>
 
@@ -619,31 +635,87 @@
 </footer>
 
 <script>
-    const urlInput = document.getElementById('urlInput');
-    const fetchBtn = document.getElementById('fetchBtn');
-    const pasteBtn = document.getElementById('pasteBtn');
-    const loading  = document.getElementById('loading');
-    const errorBox = document.getElementById('errorBox');
+    const urlInput  = document.getElementById('urlInput');
+    const fetchBtn  = document.getElementById('fetchBtn');
+    const pasteBtn  = document.getElementById('pasteBtn');
+    const loading   = document.getElementById('loading');
+    const errorBox  = document.getElementById('errorBox');
     const resultCard = document.getElementById('resultCard');
+    const anotherBtn = document.getElementById('anotherBtn');
 
-    pasteBtn.addEventListener('click', async () => {
+    // ── Clipboard helpers ──────────────────────────────────────────────────────
+
+    async function tryReadClipboard() {
         try {
-            const text = await navigator.clipboard.readText();
-            urlInput.value = text.trim();
-            urlInput.focus();
+            const text = (await navigator.clipboard.readText()).trim();
+            return isTikTokUrl(text) ? text : null;
         } catch {
+            return null;
+        }
+    }
+
+    async function checkAndFill() {
+        if (urlInput.value.trim()) return;
+        const url = await tryReadClipboard();
+        if (url) {
+            urlInput.value = url;
+            doFetch();
+        }
+    }
+
+    // Paste button: fill + auto-fetch when clipboard has a TikTok URL
+    pasteBtn.addEventListener('click', async () => {
+        const url = await tryReadClipboard();
+        if (url) {
+            urlInput.value = url;
+            doFetch();
+        } else {
             urlInput.focus();
         }
     });
 
-    urlInput.addEventListener('keydown', e => {
-        if (e.key === 'Enter') fetchBtn.click();
+    // Auto-trigger fetch when user pastes into the input
+    urlInput.addEventListener('paste', () => {
+        setTimeout(() => {
+            if (isTikTokUrl(urlInput.value.trim())) doFetch();
+        }, 30);
     });
 
-    fetchBtn.addEventListener('click', async () => {
+    // Auto-check clipboard when switching back to this tab
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') checkAndFill();
+    });
+
+    urlInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') doFetch();
+    });
+
+    fetchBtn.addEventListener('click', doFetch);
+
+    // ── "Download another" button ─────────────────────────────────────────────
+
+    anotherBtn.addEventListener('click', async () => {
+        urlInput.value = '';
+        hide(resultCard);
+        hide(errorBox);
+        urlInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // If the user already copied a new TikTok link, go straight to it
+        const url = await tryReadClipboard();
+        if (url) {
+            urlInput.value = url;
+            doFetch();
+        } else {
+            urlInput.focus();
+        }
+    });
+
+    // ── Core fetch logic ──────────────────────────────────────────────────────
+
+    async function doFetch() {
         const raw = urlInput.value.trim();
         if (!raw) { showError('Please paste a TikTok URL first.'); return; }
-        if (!isTikTokUrl(raw)) { showError('That doesn\'t look like a TikTok URL. Make sure it contains tiktok.com or vm.tiktok.com.'); return; }
+        if (!isTikTokUrl(raw)) { showError("That doesn't look like a TikTok URL. Make sure it contains tiktok.com."); return; }
 
         hide(errorBox);
         hide(resultCard);
@@ -659,32 +731,30 @@
             hide(loading);
             fetchBtn.disabled = false;
         }
-    });
+    }
 
     function isTikTokUrl(url) {
         return /tiktok\.com|vt\.tiktok\.com|vm\.tiktok\.com/.test(url);
     }
 
     async function fetchVideoData(url) {
-        const endpoint = 'https://www.tikwm.com/api/';
-        const body = new URLSearchParams({ url, hd: '1' });
-
-        const res = await fetch(endpoint, {
+        const res = await fetch('https://www.tikwm.com/api/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: body.toString(),
+            body: new URLSearchParams({ url, hd: '1' }).toString(),
         });
 
         if (!res.ok) throw new Error(`Network error (${res.status}). Please try again.`);
 
         const json = await res.json();
-
         if (json.code !== 0 || !json.data) {
             throw new Error(json.msg || 'Could not fetch video. The link may be private or expired.');
         }
 
         return json.data;
     }
+
+    // ── Render result ─────────────────────────────────────────────────────────
 
     function renderResult(d) {
         document.getElementById('thumb').src = d.cover || d.origin_cover || '';
@@ -693,40 +763,42 @@
         document.getElementById('authorName').textContent = d.author?.nickname ? `@${d.author.nickname}` : '';
 
         const stats = [];
-        if (d.play_count) stats.push({ icon: '▶', val: fmt(d.play_count) });
-        if (d.digg_count)  stats.push({ icon: '♥', val: fmt(d.digg_count) });
+        if (d.play_count)    stats.push({ icon: '▶', val: fmt(d.play_count) });
+        if (d.digg_count)    stats.push({ icon: '♥', val: fmt(d.digg_count) });
         if (d.comment_count) stats.push({ icon: '💬', val: fmt(d.comment_count) });
-        if (d.share_count)  stats.push({ icon: '↗', val: fmt(d.share_count) });
+        if (d.share_count)   stats.push({ icon: '↗', val: fmt(d.share_count) });
         document.getElementById('videoStats').innerHTML = stats
             .map(s => `<div class="stat"><span class="stat-icon">${s.icon}</span><span>${s.val}</span></div>`)
             .join('');
 
-        const hdUrl = d.hdplay || d.play || '';
-        const sdUrl = d.play   || d.hdplay || '';
-        const musicUrl = d.music || d.music_info?.play || '';
+        const base     = buildFilename(d);
+        const hdUrl    = d.hdplay || d.play || '';
+        const sdUrl    = d.play   || d.hdplay || '';
+        const musicUrl = d.music  || d.music_info?.play || '';
 
-        setDownloadLink('dlHD',   hdUrl,    d.title);
-        setDownloadLink('dlSD',   sdUrl,    d.title);
-        setDownloadLink('dlAudio', musicUrl, d.title);
-
-        if (!musicUrl) document.getElementById('dlAudio').style.display = 'none';
-        else           document.getElementById('dlAudio').style.display = '';
+        setLink('dlHD',    hdUrl,    base + '.mp4');
+        setLink('dlSD',    sdUrl,    base + '.mp4');
+        setLink('dlAudio', musicUrl, base + '.mp3');
 
         show(resultCard);
         resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    function setDownloadLink(id, url, title) {
-        const el = document.getElementById(id);
-        if (!url) { el.style.display = 'none'; return; }
-        el.style.display = '';
-        el.href = url;
-        el.setAttribute('download', sanitizeFilename(title || 'tiktok') + '.mp4');
+    function buildFilename(d) {
+        const user = d.author?.unique_id || d.author?.uniqueId || 'tiktok';
+        const id   = d.id || String(Date.now());
+        return `${user}_${id}`;
     }
 
-    function sanitizeFilename(s) {
-        return s.replace(/[^a-z0-9_\- ]/gi, '').trim().slice(0, 60) || 'tiktok';
+    function setLink(elId, url, filename) {
+        const el = document.getElementById(elId);
+        if (!url) { el.style.display = 'none'; return; }
+        el.style.display = 'flex';
+        el.href = url;
+        el.setAttribute('download', filename);
     }
+
+    // ── Utilities ─────────────────────────────────────────────────────────────
 
     function fmt(n) {
         if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
@@ -734,18 +806,15 @@
         return String(n);
     }
 
-    function showError(msg) {
-        errorBox.textContent = msg;
-        show(errorBox);
-    }
-
+    function showError(msg) { errorBox.textContent = msg; show(errorBox); }
     function show(el) { el.style.display = 'block'; }
     function hide(el) { el.style.display = 'none'; }
 
-    // Hide loading/result on start
+    // Init
     hide(loading);
     hide(resultCard);
     hide(errorBox);
+    checkAndFill();
 </script>
 
 </body>
