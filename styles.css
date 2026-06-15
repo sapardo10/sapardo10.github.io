@@ -276,7 +276,7 @@ a { color: var(--app-accent); }
 }
 
 .btn-primary {
-    background: linear-gradient(120deg, var(--app-accent), var(--app-accent-2));
+    background: var(--app-accent);
     color: #fff;
     box-shadow: var(--shadow-sm);
 }
@@ -615,7 +615,7 @@ a { color: var(--app-accent); }
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(120deg, var(--app-accent), var(--app-accent-2));
+    background: var(--app-accent);
     color: #fff;
     padding: 0.7rem 1.3rem;
     border-radius: var(--radius-pill);
@@ -651,7 +651,7 @@ a { color: var(--app-accent); }
     height: 64px;
     border-radius: 22%;
     flex-shrink: 0;
-    background: linear-gradient(135deg, var(--app-accent), var(--app-accent-2));
+    background: var(--app-accent);
     box-shadow: var(--shadow-xs);
 }
 
@@ -742,6 +742,29 @@ a { color: var(--app-accent); }
     gap: 0.9rem;
     flex-wrap: wrap;
     align-items: center;
+}
+
+/* Floating app-icon tile (replaces the old phone mockup) */
+.detail-hero-art {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background: var(--app-accent-soft);
+    box-shadow: var(--shadow);
+    animation: float 5s ease-in-out infinite;
+}
+
+.detail-hero-icon {
+    width: 132px;
+    height: 132px;
+    border-radius: 28px;
+    object-fit: cover;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.22);
 }
 
 /* Feature list */
@@ -862,7 +885,7 @@ a { color: var(--app-accent); }
     align-items: center;
     gap: 0.9rem;
     padding: 1.3rem 2.3rem;
-    background: linear-gradient(120deg, var(--app-accent), var(--app-accent-2));
+    background: var(--app-accent);
     color: #fff;
     text-decoration: none;
     border-radius: var(--radius);
@@ -874,7 +897,7 @@ a { color: var(--app-accent); }
 
 .email-link:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 
-.email-icon { font-size: 1.4rem; }
+.email-icon { display: inline-flex; align-items: center; flex-shrink: 0; }
 .contact-hint { color: var(--text-light); font-size: 0.95rem; }
 
 .coffee-content {
@@ -905,7 +928,7 @@ a { color: var(--app-accent); }
 .coffee-link {
     display: inline-block;
     padding: 0.9rem 1.8rem;
-    background: linear-gradient(120deg, var(--app-accent), var(--app-accent-2));
+    background: var(--app-accent);
     color: #fff;
     text-decoration: none;
     border-radius: var(--radius);
@@ -1022,4 +1045,6 @@ a { color: var(--app-accent); }
 
     .app-detail-hero .container { flex-direction: column; text-align: center; }
     .app-detail-hero .detail-hero-actions { justify-content: center; }
+    .detail-hero-art { width: 170px; height: 170px; border-radius: 32px; }
+    .detail-hero-icon { width: 104px; height: 104px; border-radius: 24px; }
 }
