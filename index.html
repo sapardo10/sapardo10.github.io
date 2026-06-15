@@ -4,42 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sergio Pardo - Desarrollador de aplicaciones móviles Android y Flutter">
-    <meta name="theme-color" content="#1f2937">
-    <title>Sergio Pardo - Desarrollador Android</title>
+    <meta name="theme-color" content="#6366f1">
+    <title>Sergio Pardo - Desarrollador Android & Flutter</title>
     <link rel="icon" type="image/png" href="assets/icons/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="stars-background"></div>
-    
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <span class="logo">Sergio Pardo</span>
-                <div class="language-switcher">
-                    <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
-                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-                </div>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#inicio" class="lang" data-es="Inicio" data-en="Home">Inicio</a></li>
-                <li><a href="#apps" class="lang" data-es="Mis Apps" data-en="My Apps">Mis Apps</a></li>
-                <li><a href="#cafe" class="lang" data-es="Apoyar" data-en="Support">Apoyar</a></li>
-                <li><a href="#contacto" class="lang" data-es="Contacto" data-en="Contact">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    <!-- Shared navbar injected by script.js -->
+    <div id="site-nav"></div>
 
     <header class="hero" id="inicio">
         <div class="container">
             <div class="hero-content">
+                <span class="eyebrow lang" data-es="Android & Flutter" data-en="Android & Flutter"></span>
                 <h1 class="hero-title"><span class="lang" data-es="Hola, soy" data-en="Hi, I am"></span> <span class="gradient-text">Sergio Pardo</span></h1>
                 <p class="hero-subtitle lang" data-es="Desarrollador de aplicaciones móviles Android y Flutter" data-en="Android and Flutter Mobile App Developer"></p>
-                <p class="hero-description lang" data-es="Creo aplicaciones innovadoras y funcionales que mejoran la vida de millones de usuarios en Google Play Store." data-en="I create innovative and functional applications that improve the lives of millions of users on Google Play Store."></p>
-                <a href="#apps" class="cta-button lang" data-es="Explorar mis aplicaciones" data-en="Explore my applications"></a>
+                <p class="hero-description lang" data-es="Diseño y construyo aplicaciones limpias, útiles y bien pulidas que llegan a usuarios de todo el mundo en Google Play." data-en="I design and build clean, useful and well-polished apps that reach users around the world on Google Play."></p>
+                <div class="hero-actions">
+                    <a href="#apps" class="btn btn-primary lang" data-es="Explorar mis apps" data-en="Explore my apps"></a>
+                    <a href="#contacto" class="btn btn-secondary lang" data-es="Contacto" data-en="Get in touch"></a>
+                </div>
             </div>
             <div class="hero-illustration">
                 <div class="device-frame">
@@ -49,69 +38,183 @@
         </div>
     </header>
 
-    <section class="apps-section" id="apps">
+    <!-- ============================ Featured apps ============================ -->
+    <section class="apps-section page-section" id="apps">
         <div class="container">
             <h2 class="section-title lang" data-es="Mis Aplicaciones" data-en="My Applications"></h2>
-            <p class="section-subtitle lang" data-es="Aplicaciones disponibles en Google Play Store" data-en="Applications available on Google Play Store"></p>
-            
+            <p class="section-subtitle lang" data-es="Aplicaciones publicadas y disponibles en Google Play Store." data-en="Published apps available on Google Play Store."></p>
+
             <div class="apps-grid">
+                <!-- Stampway -->
                 <article class="app-card">
-                    <div class="app-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    <h3 class="app-name">Pausactive</h3>
-                    <p class="app-description lang" data-es="Pausactive - Healthy breaks es una aplicación diseñada para recordarte tomar descansos saludables durante tu jornada." data-en="Pausactive - Healthy breaks is an application designed to remind you to take healthy breaks during your workday."></p>
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/stampway.png" alt="Stampway" class="app-icon-img">
+                        <h3 class="app-name">Stampway</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Tu pasaporte digital: colecciona sellos de entrada y salida de cada país que visitas." data-en="Your digital passport: collect entry & exit stamps from every country you visit."></p>
                     <div class="app-tags">
-                        <span class="tag lang" data-es="Salud" data-en="Health"></span>
+                        <span class="tag lang" data-es="Viajes" data-en="Travel"></span>
                         <span class="tag lang" data-es="Productividad" data-en="Productivity"></span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.pausactive.pausactive" class="app-link" target="_blank" rel="noopener noreferrer">
-                        <span class="lang" data-es="Ver en Play Store" data-en="View on Play Store"></span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8.5 1.5H14.5V7.5M14.5 1.5L2 14M6.5 4H3.5V12.5H12V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </article>
-
-                <article class="app-card">
-                    <div class="app-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    <h3 class="app-name">PingPartner</h3>
-                    <p class="app-description lang" data-es="PingPartner te ayuda a monitorizar la conexión a internet y realizar pruebas de velocidad de forma rápida y sencilla." data-en="PingPartner helps you monitor your internet connection and perform speed tests quickly and easily."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Utilidades" data-en="Utilities"></span>
-                        <span class="tag lang" data-es="Red" data-en="Network"></span>
+                    <div class="app-card-actions">
+                        <a href="apps/stampway.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.stampway" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
+                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
+                        </a>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.pingpartner" class="app-link" target="_blank" rel="noopener noreferrer">
-                        <span class="lang" data-es="Ver en Play Store" data-en="View on Play Store"></span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8.5 1.5H14.5V7.5M14.5 1.5L2 14M6.5 4H3.5V12.5H12V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
                 </article>
 
+                <!-- WalkCast -->
                 <article class="app-card">
-                    <div class="app-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    <h3 class="app-name">TripList</h3>
-                    <p class="app-description lang" data-es="TripList es tu compañero perfecto para planificar, organizar y disfrutar de tus viajes con listas de empaque inteligentes." data-en="TripList is your perfect companion for planning, organizing and enjoying your trips with smart packing lists."></p>
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/walkcast.png" alt="WalkCast" class="app-icon-img">
+                        <h3 class="app-name">WalkCast</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Tu guía turístico con IA: genera y narra la historia de cualquier lugar." data-en="Your AI tour guide: generates and narrates the history of any place."></p>
+                    <div class="app-tags">
+                        <span class="tag lang" data-es="Viajes" data-en="Travel"></span>
+                        <span class="tag lang" data-es="IA" data-en="AI"></span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="apps/walkcast.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.walkcast.walkcast" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
+                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- PingPartner -->
+                <article class="app-card">
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/pingpartner.png" alt="PingPartner" class="app-icon-img">
+                        <h3 class="app-name">PingPartner</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Envía un 'ping' a tu pareja para decirle que piensas en ella." data-en="Send your partner a 'ping' to let them know you're thinking of them."></p>
+                    <div class="app-tags">
+                        <span class="tag lang" data-es="Social" data-en="Social"></span>
+                        <span class="tag lang" data-es="Pareja" data-en="Couples"></span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="apps/pingpartner.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.pingpartner" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
+                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- TripList -->
+                <article class="app-card">
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/triplist.png" alt="TripList" class="app-icon-img">
+                        <h3 class="app-name">TripList</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Listas de equipaje inteligentes que aprenden de tus viajes anteriores." data-en="Smart packing lists that learn from your past trips."></p>
                     <div class="app-tags">
                         <span class="tag lang" data-es="Viajes" data-en="Travel"></span>
                         <span class="tag lang" data-es="Organizador" data-en="Organizer"></span>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.iziapps.triplist" class="app-link" target="_blank" rel="noopener noreferrer">
-                        <span class="lang" data-es="Ver en Play Store" data-en="View on Play Store"></span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8.5 1.5H14.5V7.5M14.5 1.5L2 14M6.5 4H3.5V12.5H12V9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
+                    <div class="app-card-actions">
+                        <a href="apps/triplist.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.triplist" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
+                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Pausactive -->
+                <article class="app-card">
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/pausactive.png" alt="Pausactive" class="app-icon-img">
+                        <h3 class="app-name">Pausactive</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Recordatorios para tomar pausas activas y saludables mientras trabajas." data-en="Reminders to take healthy active breaks while you work."></p>
+                    <div class="app-tags">
+                        <span class="tag lang" data-es="Salud" data-en="Health"></span>
+                        <span class="tag lang" data-es="Productividad" data-en="Productivity"></span>
+                    </div>
+                    <div class="app-card-actions">
+                        <a href="apps/pausactive.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.pausactive.pausactive" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
+                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
+                        </a>
+                    </div>
                 </article>
             </div>
         </div>
     </section>
 
+    <!-- ============================ Coming soon ============================ -->
+    <section class="page-section" id="proximamente">
+        <div class="container">
+            <h2 class="section-title lang" data-es="Próximamente" data-en="Coming Soon"></h2>
+            <p class="section-subtitle lang" data-es="Nuevas apps en las que estoy trabajando." data-en="New apps I'm currently working on."></p>
+
+            <div class="apps-grid">
+                <!-- iziQR -->
+                <article class="coming-soon-card">
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/iziqr.png" alt="iziQR" class="app-icon-img">
+                        <h3 class="app-name">iziQR</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Escáner QR: escanea, guarda y comparte." data-en="QR scanner: scan, save, share."></p>
+                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
+                </article>
+
+                <!-- Travio -->
+                <article class="coming-soon-card">
+                    <div class="app-card-head">
+                        <img src="assets/images/apps/travio.png" alt="Travio" class="app-icon-img">
+                        <h3 class="app-name">Travio</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Tu compañero de planificación de viajes." data-en="Your travel planning companion."></p>
+                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
+                </article>
+
+                <!-- Caurora (no icon - gradient placeholder) -->
+                <article class="coming-soon-card">
+                    <div class="app-card-head">
+                        <div class="app-icon"></div>
+                        <h3 class="app-name">Caurora</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Cámara para fotografía de auroras con controles manuales (iOS)." data-en="Aurora photography camera with manual controls (iOS)."></p>
+                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
+                </article>
+
+                <!-- supa_reminder (no icon - gradient placeholder) -->
+                <article class="coming-soon-card">
+                    <div class="app-card-head">
+                        <div class="app-icon"></div>
+                        <h3 class="app-name">supa_reminder</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Recordatorios contextuales por tiempo y ubicación." data-en="Context-aware reminders by time and location."></p>
+                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
+                </article>
+
+                <!-- Picafija (teaser, no icon) -->
+                <article class="coming-soon-card">
+                    <div class="app-card-head">
+                        <div class="app-icon"></div>
+                        <h3 class="app-name">Picafija</h3>
+                    </div>
+                    <p class="app-description lang" data-es="Algo nuevo está en camino." data-en="Something new is on the way."></p>
+                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Contact & support ======================= -->
     <div class="sections-wrapper">
         <section class="contact-section" id="contacto">
             <div class="container">
                 <h2 class="section-title lang" data-es="Ponte en Contacto" data-en="Get in Touch"></h2>
-                <p class="section-subtitle lang" data-es="¿Tienes alguna pregunta? Me encantaría saber de ti" data-en="Do you have any questions? I'd love to hear from you"></p>
-                
+                <p class="section-subtitle lang" data-es="¿Tienes alguna pregunta? Me encantaría saber de ti." data-en="Do you have any questions? I'd love to hear from you."></p>
+
                 <div class="contact-content">
                     <a href="mailto:carnifis@gmail.com" class="email-link">
                         <span class="email-icon">✉</span>
@@ -125,11 +228,11 @@
         <section class="coffee-section" id="cafe">
             <div class="container">
                 <h2 class="section-title lang" data-es="Apoya mi trabajo" data-en="Support my work"></h2>
-                <p class="section-subtitle lang" data-es="Si te gustan mis aplicaciones, considera apoyarme" data-en="If you like my apps, consider supporting me"></p>
-                
+                <p class="section-subtitle lang" data-es="Si te gustan mis aplicaciones, considera apoyarme." data-en="If you like my apps, consider supporting me."></p>
+
                 <div class="coffee-content">
                     <div class="coffee-qr">
-                        <img src="assets/images/qr-code.png" alt="QR Code" class="qr-image">
+                        <img src="assets/images/qr-code.png" alt="Buy me a coffee QR" class="qr-image">
                     </div>
                     <div class="coffee-info">
                         <p class="coffee-text lang" data-es="Puedes comprarme un café en" data-en="You can buy me a coffee at"></p>
@@ -140,12 +243,8 @@
         </section>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Sergio Pardo. <span class="lang" data-es="Todos los derechos reservados." data-en="All rights reserved."></span></p>
-            <p><span class="lang" data-es="Desarrollador de aplicaciones Android" data-en="Android App Developer"></span> | <a href="#inicio" class="lang" data-es="Volver arriba" data-en="Back to top"></a></p>
-        </div>
-    </footer>
+    <!-- Shared footer injected by script.js -->
+    <div id="site-footer"></div>
 
     <script src="script.js"></script>
 </body>
