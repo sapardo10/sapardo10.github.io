@@ -46,22 +46,27 @@
 }
 
 :root {
-    /* Base brand */
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
+    /* Base brand — Royal Blue + Amber (trust + energy) */
+    --primary-color: #2563eb;
+    --secondary-color: #1d4ed8;
+
+    /* Warm complementary accent */
+    --accent: #f59e0b;
+    --accent-2: #fbbf24;
+    --accent-soft: rgba(245, 158, 11, 0.12);
 
     /* Per-app accent — fall back to base brand on non-themed pages.
        Per-app pages override these three. */
     --app-accent: var(--primary-color);
     --app-accent-2: var(--secondary-color);
-    --app-accent-soft: rgba(99, 102, 241, 0.10);
+    --app-accent-soft: rgba(37, 99, 235, 0.10);
 
     /* Neutrals */
-    --text-dark: #111827;
-    --text-mid: #374151;
-    --text-light: #6b7280;
-    --bg-light: #f8fafc;
-    --bg-subtle: #f1f5f9;
+    --text-dark: #0b1733;
+    --text-mid: #334155;
+    --text-light: #64748b;
+    --bg-light: #f5f8ff;
+    --bg-subtle: #eef2fb;
     --white: #ffffff;
     --border-color: #e5e7eb;
     --border-soft: #eef2f7;
@@ -110,7 +115,7 @@ a { color: var(--app-accent); }
     z-index: -1;
     background:
         radial-gradient(900px 500px at 12% -8%, var(--app-accent-soft), transparent 60%),
-        radial-gradient(800px 480px at 100% 6%, rgba(139, 92, 246, 0.08), transparent 60%),
+        radial-gradient(800px 480px at 100% 6%, var(--accent-soft), transparent 60%),
         var(--bg-light);
 }
 
@@ -158,7 +163,7 @@ a { color: var(--app-accent); }
 }
 
 .gradient-text {
-    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(120deg, var(--primary-color), var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -341,18 +346,60 @@ a { color: var(--app-accent); }
 
 /* ================================ Hero ================================= */
 .hero {
-    padding: 4.5rem 0 4rem;
+    padding: 7rem 0 5.5rem;
     position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 3rem;
-    align-items: center;
+    display: block;
+    max-width: 900px;
+    position: relative;
 }
 
-.hero-content { z-index: 1; }
+.hero-content { position: relative; z-index: 1; }
+
+/* Animated aurora gradient backdrop */
+.hero-aurora {
+    position: absolute;
+    inset: -30% -15%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(70px);
+    opacity: 0.9;
+}
+
+.aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+}
+
+.aurora-blob.blob-1 {
+    width: 46vw; max-width: 540px; aspect-ratio: 1 / 1;
+    background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.55), transparent 68%);
+    top: -6%; left: 4%;
+    animation: drift-1 19s var(--ease) infinite;
+}
+
+.aurora-blob.blob-2 {
+    width: 40vw; max-width: 460px; aspect-ratio: 1 / 1;
+    background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.42), transparent 68%);
+    top: 0; right: 2%;
+    animation: drift-2 23s var(--ease) infinite;
+}
+
+.aurora-blob.blob-3 {
+    width: 48vw; max-width: 560px; aspect-ratio: 1 / 1;
+    background: radial-gradient(circle at 30% 30%, rgba(29, 78, 216, 0.45), transparent 70%);
+    bottom: -28%; left: 32%;
+    animation: drift-3 27s var(--ease) infinite;
+}
+
+@keyframes drift-1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(36px, 28px) scale(1.08); } }
+@keyframes drift-2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-32px, 22px) scale(1.1); } }
+@keyframes drift-3 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(24px, -30px) scale(1.06); } }
 
 .hero-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -370,17 +417,53 @@ a { color: var(--app-accent); }
 }
 
 .hero-description {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-light);
-    margin-bottom: 2rem;
-    max-width: 540px;
+    margin: 0 auto 2rem;
+    max-width: 580px;
 }
 
 .hero-actions {
     display: flex;
     gap: 0.9rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
+
+/* Credibility strip — real app icons under the hero CTA */
+.hero-strip {
+    margin-top: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.hero-strip-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.hero-strip-icons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-strip-icons img {
+    width: 44px;
+    height: 44px;
+    border-radius: 22%;
+    box-shadow: var(--shadow-xs), 0 0 0 1px rgba(16, 24, 40, 0.04);
+    background: #fff;
+    transition: transform var(--t-fast);
+}
+
+.hero-strip-icons img:hover { transform: translateY(-4px); }
 
 /* Keep legacy CTA class working */
 .cta-button {
@@ -446,7 +529,7 @@ a { color: var(--app-accent); }
     inset: 18% 18% auto 18%;
     height: 64%;
     border-radius: 18px;
-    background: linear-gradient(160deg, var(--app-accent-soft), rgba(139, 92, 246, 0.12));
+    background: linear-gradient(160deg, var(--app-accent-soft), var(--accent-soft));
 }
 
 @keyframes float {
@@ -763,7 +846,7 @@ a { color: var(--app-accent); }
 .contact-section,
 .coffee-section {
     padding: var(--section-pad) 0;
-    background: linear-gradient(160deg, var(--app-accent-soft) 0%, rgba(139, 92, 246, 0.08) 100%);
+    background: linear-gradient(160deg, var(--app-accent-soft) 0%, var(--accent-soft) 100%);
 }
 
 .contact-content {
@@ -898,18 +981,17 @@ a { color: var(--app-accent); }
         padding-left: 0;
     }
 
-    .hero { padding: 2.5rem 0; }
-
-    .hero .container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+    .hero { padding: 4rem 0 3rem; }
 
     .hero-content { text-align: center; }
 
     .hero-description { margin-left: auto; margin-right: auto; }
 
     .hero-actions { justify-content: center; }
+
+    .hero-aurora { filter: blur(50px); }
+
+    .hero-strip-icons img { width: 38px; height: 38px; }
 
     .device-frame { width: 180px; height: 360px; }
 
