@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroidMount - Monta tu Android como unidad de Finder</title>
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --app-accent: #3DDC84;
+            --app-accent-2: #0D0D0D;
+            --app-accent-soft: rgba(61, 220, 132, 0.16);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-background"></div>
+
+    <div id="site-nav"></div>
+
+    <header class="app-detail-hero">
+        <div class="container">
+            <div class="detail-hero-art">
+                <img src="../assets/images/apps/droidmount.svg" alt="DroidMount" class="detail-hero-icon">
+            </div>
+            <div class="detail-hero-text">
+                <span class="eyebrow lang" data-es="macOS · Código abierto" data-en="macOS · Open source"></span>
+                <h1>DroidMount</h1>
+                <p class="lead lang" data-es="Monta tu Android como una unidad de Finder en tu Mac — lectura y escritura completas, sin el paywall de MacDroid." data-en="Mount your Android phone as a Finder drive on your Mac — full read/write, no MacDroid paywall."></p>
+                <div class="detail-hero-actions">
+                    <a href="https://github.com/sapardo10/DroidMount/releases/latest" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg class="play-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.01-2.11-3.16.69-3.83-1.34-3.83-1.34-.52-1.3-1.26-1.65-1.26-1.65-1.03-.71.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.65 1.24 3.3.94.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.11 0 1.53-.01 2.75-.01 3.13 0 .3.2.66.79.55 4.51-1.51 7.77-5.76 7.77-10.78C23.02 5.24 18.27.5 12 .5z"/></svg>
+                        <span class="play-label"><small class="lang" data-es="DESCARGAR EN" data-en="DOWNLOAD ON"></small><strong>GitHub</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title lang" data-es="Qué hace" data-en="What it does"></h2>
+            <p class="section-subtitle lang" data-es="Una app de barra de menú gratuita que conecta tu teléfono por ADB y lo monta vía FUSE-T, sin extensión de kernel." data-en="A free menu-bar app that connects to your phone over ADB and mounts it via FUSE-T, with no kernel extension."></p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📂</div>
+                    <h3 class="lang" data-es="Lectura y escritura completas" data-en="Full read/write"></h3>
+                    <p class="lang" data-es="Arrastra, edita, renombra y elimina archivos directamente en el teléfono, sin límites de PRO." data-en="Drag, edit, rename and delete files straight on the phone — no PRO limits."></p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔌</div>
+                    <h3 class="lang" data-es="Sin extensión de kernel" data-en="No kernel extension"></h3>
+                    <p class="lang" data-es="Usa FUSE-T (NFS en espacio de usuario): sin modo de recuperación ni reinicios." data-en="Uses FUSE-T (userspace NFS): no Recovery-mode security downgrade, no reboot."></p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="lang" data-es="Transferencia masiva rápida" data-en="Fast bulk transfer"></h3>
+                    <p class="lang" data-es="'Send Finder Selection' salta el montaje y usa adb pull/push directo: ~60× más rápido para muchos archivos." data-en="'Send Finder Selection' bypasses the mount with direct adb pull/push — ~60× faster for many files."></p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🖥️</div>
+                    <h3 class="lang" data-es="Vive en la barra de menú" data-en="Lives in the menu bar"></h3>
+                    <p class="lang" data-es="Detecta el dispositivo, monta/desmonta y abre el volumen en Finder con un clic." data-en="Detects the device, mounts/unmounts and reveals the volume in Finder with one click."></p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🆓</div>
+                    <h3 class="lang" data-es="Gratis y de código abierto" data-en="Free & open source"></h3>
+                    <p class="lang" data-es="Sin cuenta, sin anuncios, sin paywall. Código fuente disponible bajo licencia MIT." data-en="No account, no ads, no paywall. Source available under the MIT license."></p>
+                </div>
+            </div>
+
+            <div class="detail-hero-actions" style="justify-content:center;margin-top:3rem;">
+                <a href="https://github.com/sapardo10/DroidMount" class="btn btn-primary lang" target="_blank" rel="noopener noreferrer" data-es="Ver código fuente" data-en="View source"></a>
+                <a href="https://github.com/sapardo10/DroidMount/issues" class="btn btn-secondary lang" target="_blank" rel="noopener noreferrer" data-es="Soporte / Issues" data-en="Support / Issues"></a>
+            </div>
+            <p style="text-align:center;margin-top:2rem;">
+                <a href="../index.html" class="lang" data-es="← Volver" data-en="← Back"></a>
+            </p>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
