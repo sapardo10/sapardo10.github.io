@@ -85,6 +85,7 @@ function navMarkup(root) {
             <ul class="nav-menu">
                 <li><a href="${home}#inicio" class="lang" data-es="Inicio" data-en="Home">Inicio</a></li>
                 <li><a href="${home}#apps" class="lang" data-es="Mis Apps" data-en="My Apps">Mis Apps</a></li>
+                <li><a href="${root}postal-code.html" class="lang" data-es="Código postal" data-en="Postal code">Código postal</a></li>
                 <li><a href="${home}#cafe" class="lang" data-es="Apoyar" data-en="Support">Apoyar</a></li>
                 <li><a href="${home}#contacto" class="lang" data-es="Contacto" data-en="Contact">Contacto</a></li>
             </ul>

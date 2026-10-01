@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the postal code for an address or your current location.">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Postal Code Finder | Sergio Pardo</title>
+    <link rel="stylesheet" href="postal-code.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="tool-header">
+        <a class="tool-logo" href="index.html" aria-label="Sergio Pardo portfolio">
+            <span class="tool-logo-icon" aria-hidden="true">⌖</span>
+            <span class="tool-logo-text">Post<span>Code</span></span>
+        </a>
+        <div class="tool-header-actions">
+            <div class="language-switcher" aria-label="Language">
+                <button class="lang-btn" type="button" onclick="setLanguage('es')">ES</button>
+                <button class="lang-btn" type="button" onclick="setLanguage('en')">EN</button>
+            </div>
+            <a class="back-link lang" href="index.html" data-es="Volver al portafolio" data-en="Back to portfolio">Volver al portafolio</a>
+        </div>
+    </header>
+
+    <main class="postal-page">
+        <section class="postal-hero" aria-labelledby="postal-title">
+            <span class="hero-badge"><span aria-hidden="true">✦</span><span class="lang" data-es="Búsqueda de ubicación gratuita" data-en="Free location lookup">Búsqueda de ubicación gratuita</span></span>
+            <h1 id="postal-title"><span class="lang" data-es="Encuentra un" data-en="Find a">Encuentra un</span><br><span class="gradient-text lang" data-es="código postal" data-en="postal code">código postal</span></h1>
+            <p class="lang" data-es="Busca una dirección o comparte tu ubicación para encontrar el código postal disponible." data-en="Search an address or share your location to find the postal code available for it.">Busca una dirección o comparte tu ubicación para encontrar el código postal disponible.</p>
+        </section>
+
+        <section class="postal-card" aria-labelledby="postal-form-label">
+            <form id="postal-search-form" class="postal-form">
+                <label id="postal-form-label" for="postal-location" class="postal-label lang" data-es="Escribe una dirección o lugar" data-en="Enter an address or place">Escribe una dirección o lugar</label>
+                <div class="postal-input-row">
+                    <input id="postal-location" name="location" type="search" minlength="2" maxlength="180" autocomplete="street-address" required class="postal-input lang" placeholder="Dirección, ciudad y país" data-es="Dirección, ciudad y país" data-en="Address, city, and country" aria-describedby="postal-privacy-note">
+                    <button class="postal-submit lang" type="submit" data-es="⌕  Buscar código" data-en="⌕  Find postal code">⌕&nbsp; Find postal code</button>
+                </div>
+            </form>
+
+            <div class="postal-divider"><span class="lang" data-es="o" data-en="or">o</span></div>
+
+            <button id="postal-geolocate" class="postal-location-button" type="button">
+                <span aria-hidden="true">◎</span>
+                <span class="lang" data-es="Usar mi ubicación actual" data-en="Use my current location">Usar mi ubicación actual</span>
+            </button>
+
+            <p id="postal-privacy-note" class="postal-privacy lang" data-es="La ubicación que escribas o compartas se envía a Photon para buscarla. Solo se muestra un código postal si aparece en los datos." data-en="The location you enter or share is sent to Photon for lookup. A postal code is shown only when the data includes one.">La ubicación que escribas o compartas se envía a Photon para buscarla. Solo se muestra un código postal si aparece en los datos.</p>
+            <p id="postal-status" class="postal-status" role="status" aria-live="polite" hidden></p>
+            <div id="postal-results" class="postal-results" aria-live="polite" hidden></div>
+        </section>
+
+        <section class="how-to" aria-labelledby="how-title">
+            <h2 id="how-title" class="section-label lang" data-es="Cómo funciona" data-en="How it works">Cómo funciona</h2>
+            <div class="steps">
+                <article class="step"><span class="step-num">1</span><h3 class="lang" data-es="Indica el lugar" data-en="Enter a place">Indica el lugar</h3><p class="lang" data-es="Añade una dirección, ciudad y país para precisar la búsqueda." data-en="Add an address, city, and country to narrow the search.">Añade una dirección, ciudad y país para precisar la búsqueda.</p></article>
+                <article class="step"><span class="step-num">2</span><h3 class="lang" data-es="Consulta los datos" data-en="Check the data">Consulta los datos</h3><p class="lang" data-es="También puedes permitir el acceso a tu ubicación actual." data-en="You can also allow access to your current location.">También puedes permitir el acceso a tu ubicación actual.</p></article>
+                <article class="step"><span class="step-num">3</span><h3 class="lang" data-es="Revisa el resultado" data-en="See the result">Revisa el resultado</h3><p class="lang" data-es="Te mostraremos los códigos postales que estén disponibles." data-en="We’ll show postal codes that are available in the data.">Te mostraremos los códigos postales que estén disponibles.</p></article>
+            </div>
+        </section>
+
+        <div class="features">
+            <article class="feature"><span class="feature-icon" aria-hidden="true">🌍</span><div><h3 class="lang" data-es="Datos de mapas abiertos" data-en="Open map data">Datos de mapas abiertos</h3><p class="lang" data-es="Consulta datos geográficos de OpenStreetMap mediante Photon." data-en="Search OpenStreetMap location data through Photon.">Consulta datos geográficos de OpenStreetMap mediante Photon.</p></div></article>
+            <article class="feature"><span class="feature-icon" aria-hidden="true">🔒</span><div><h3 class="lang" data-es="Ubicación bajo tu control" data-en="Location is your choice">Ubicación bajo tu control</h3><p class="lang" data-es="La ubicación actual solo se comparte si pulsas el botón y das permiso." data-en="Your current location is shared only if you choose the button and grant permission.">La ubicación actual solo se comparte si pulsas el botón y das permiso.</p></div></article>
+        </div>
+    </main>
+
+    <footer class="tool-footer">
+        <p><span class="lang" data-es="Búsqueda con" data-en="Location lookup by">Búsqueda con</span> <a href="https://photon.komoot.io/" target="_blank" rel="noopener noreferrer">Photon</a> <span class="lang" data-es="con datos de" data-en="using data from">con datos de</span> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>. <span class="footer-separator">·</span> <a href="index.html" class="lang" data-es="Volver al portafolio" data-en="Back to portfolio">Volver al portafolio</a></p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="postal-code.js"></script>
+</body>
+</html>
