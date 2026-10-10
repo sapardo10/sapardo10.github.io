@@ -25,6 +25,12 @@
         return document.documentElement.lang === 'en' ? 'en' : 'es';
     }
 
+    function lookupLanguage() {
+        // Photon's public service supports default, de, en, and fr, but not es.
+        // Use local place names for the Spanish interface.
+        return currentLanguage() === 'en' ? 'en' : 'default';
+    }
+
     function langNode(es, en, tagName = 'span', className = 'lang') {
         const node = document.createElement(tagName);
         node.className = className;
@@ -118,7 +124,7 @@
     async function searchLocation(query) {
         setBusy(true, copy.searching);
         results.hidden = true;
-        const params = new URLSearchParams({ q: query, limit: '5', lang: currentLanguage() });
+        const params = new URLSearchParams({ q: query, limit: '5', lang: lookupLanguage() });
         try {
             const features = await requestFeatures(`${photonBase}/api?${params}`);
             setBusy(false);
@@ -151,7 +157,7 @@
             const params = new URLSearchParams({
                 lat: String(position.coords.latitude),
                 lon: String(position.coords.longitude),
-                lang: currentLanguage()
+                lang: lookupLanguage()
             });
             try {
                 const features = await requestFeatures(`${photonBase}/reverse?${params}`);
