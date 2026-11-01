@@ -1,0 +1,369 @@
+/* =============================================================================
+   Sergio Pardo — Home page
+   The hero is a laptop lid covered in app stickers. Colours come from the
+   Colombian flag. Sub-pages keep using styles.css; only index.html loads this.
+   ============================================================================= */
+
+:root {
+    --cobalt: #1a3de4;
+    --cobalt-deep: #142fb3;
+    --yellow: #ffc926;
+    --red: #e5322d;
+    --ink: #0a1035;
+    --paper: #f1f4ff;
+    --white: #fff;
+
+    --gutter: clamp(1rem, 4vw, 3.5rem);
+    color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--ink);
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-size: clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem);
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, p, ol, ul { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+h2 { text-wrap: balance; }
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+.wrap { width: min(100%, 90rem); margin-inline: auto; padding-inline: var(--gutter); }
+
+.skip-link {
+    position: absolute;
+    z-index: 100;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--yellow);
+    color: var(--ink);
+    transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+/* ------------------------------- Lid (hero) ------------------------------- */
+.lid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 0 var(--gutter) clamp(1.5rem, 4vw, 3.5rem);
+    overflow: hidden;
+    background: var(--cobalt);
+    color: var(--white);
+}
+
+.topbar {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.5rem;
+}
+.topbar ul { display: flex; gap: clamp(0.9rem, 2.4vw, 2rem); }
+.topbar a {
+    display: inline-block;
+    padding-block: 0.6rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+.topbar a:hover { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 2px; }
+
+.language-switcher { display: flex; gap: 0.15rem; }
+.lang-btn {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.lang-btn.active { background: var(--white); color: var(--cobalt); }
+
+.lid-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: clamp(1rem, 2vw, 1.75rem);
+    padding-top: 1.5rem;
+}
+
+h1 {
+    font-size: min(20.5vw, 38vh);
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 0.84;
+    letter-spacing: -0.005em;
+}
+h1 span { display: block; }
+
+.lead {
+    max-width: 25ch;
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.875rem);
+    font-weight: 500;
+    line-height: 1.2;
+    text-wrap: pretty;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3.25rem;
+    padding: 0.5rem 1.4rem;
+    border: 3px solid transparent;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 160ms ease-out;
+}
+.button:hover { transform: translateY(-3px) rotate(-1deg); }
+.button:active { transform: none; }
+.button-yellow { background: var(--yellow); color: var(--ink); }
+.button-line { border-color: var(--white); }
+
+/* --------------------------------- Stickers ------------------------------- */
+.stickers { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
+
+.sticker {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    display: block;
+    width: var(--s);
+    padding: 0.32em;
+    border-radius: 24%;
+    background: var(--white);
+    font-size: clamp(0.5rem, 1.1vw, 1.1rem);
+    rotate: var(--r);
+    box-shadow: 0 0.1em 0.2em rgb(10 16 53 / 0.3), 0 0.5em 1em rgb(10 16 53 / 0.2);
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: scale 140ms ease-out, box-shadow 140ms ease-out;
+}
+.sticker img { width: 100%; border-radius: 19%; -webkit-user-drag: none; }
+.sticker:hover { scale: 1.06; }
+.sticker:focus-visible { outline-color: var(--yellow); outline-offset: 4px; }
+.sticker.is-held {
+    scale: 1.1;
+    box-shadow: 0 0.2em 0.4em rgb(10 16 53 / 0.3), 0 1.6em 2.4em rgb(10 16 53 / 0.35);
+    cursor: grabbing;
+    transition: none;
+}
+
+.sticker-badge {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    padding: 0.5em;
+    border: 0.3em solid var(--white);
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    font-size: clamp(0.625rem, 1.35vw, 1.5rem);
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+}
+
+.drag-hint {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: var(--gutter);
+    bottom: clamp(1.5rem, 4vw, 3.5rem);
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+@media (hover: hover) and (pointer: fine) {
+    .drag-hint { display: block; }
+    .sticker { cursor: grab; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sticker { animation: slap 420ms cubic-bezier(0.2, 0.9, 0.3, 1.25) both; animation-delay: calc(180ms + var(--i) * 75ms); }
+    @keyframes slap {
+        from { opacity: 0; scale: 1.7; rotate: calc(var(--r) + 14deg); }
+        35% { opacity: 1; }
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .button { transition: none; }
+}
+
+/* -------------------------------- Moved band ------------------------------ */
+.moved { padding-block: clamp(3.5rem, 8vw, 7rem); background: var(--yellow); }
+.moved .wrap { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); }
+.moved h2 {
+    font-size: clamp(3.25rem, 11.5vw, 11rem);
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 0.88;
+    letter-spacing: -0.005em;
+}
+.moved-body { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.75rem 3rem; }
+.moved-body p { max-width: 30ch; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem); line-height: 1.2; }
+.address {
+    font-size: clamp(1.75rem, 5vw, 4.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.14em;
+    transition: color 140ms ease-out;
+}
+.address:hover { color: var(--cobalt-deep); }
+
+/* ------------------------------ Paper sections ---------------------------- */
+.workshop, .legal { padding-block: clamp(3.5rem, 8vw, 7rem); background: var(--paper); }
+.workshop h2, .legal h2 {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+}
+.section-note { margin-top: 0.6rem; }
+
+/* Workshop bench */
+.bench { margin-top: clamp(2rem, 4vw, 3.5rem); border-top: 3px solid var(--ink); }
+.bench li { border-bottom: 3px solid var(--ink); }
+.bench-row {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 5fr) minmax(0, 2fr);
+    align-items: center;
+    gap: 0.25rem 2rem;
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    text-decoration: none;
+    transition: background-color 140ms ease-out, color 140ms ease-out, padding-inline 160ms ease-out;
+}
+.bench-name {
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+}
+.bench-text { max-width: 36ch; }
+.bench-state { justify-self: end; font-weight: 600; }
+.bench-state.is-live { padding: 0.15rem 0.7rem; border-radius: 0.5rem; background: var(--yellow); color: var(--ink); }
+a.bench-row:hover { padding-inline: 1rem; background: var(--cobalt); color: var(--white); }
+a.bench-row:focus-visible { outline-offset: -3px; }
+
+/* Legal ledger */
+.legal { padding-top: 0; }
+.ledger { width: 100%; margin-top: clamp(1.5rem, 3vw, 2.5rem); border-collapse: collapse; }
+.ledger thead th {
+    padding: 0 0 0.6rem;
+    border-bottom: 3px solid var(--ink);
+    font-weight: 600;
+    text-align: left;
+}
+.ledger tbody th { font-weight: 700; text-align: left; }
+.ledger tbody th, .ledger td { padding: 0.8rem 0; border-bottom: 1px solid rgb(10 16 53 / 0.25); }
+.ledger td a {
+    display: inline-block;
+    padding-block: 0.2rem;
+    color: var(--cobalt-deep);
+    font-weight: 500;
+    text-underline-offset: 0.2em;
+}
+.ledger td a:hover { color: var(--red); }
+.ledger td.none::before { content: "\2014"; color: rgb(10 16 53 / 0.55); }
+.ledger th:first-child { width: 34%; }
+
+/* ---------------------------------- Closing ------------------------------- */
+.closing { padding-block: clamp(3.5rem, 8vw, 6.5rem) 1.5rem; background: var(--ink); color: var(--white); }
+.closing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 3rem;
+}
+.closing h2 { font-size: inherit; font-weight: 600; }
+.mail {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: clamp(1.625rem, 5.6vw, 5.25rem);
+    font-stretch: 75%;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--yellow);
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.14em;
+}
+.coffee { display: flex; align-items: center; gap: 1.25rem; }
+.coffee a { font-weight: 700; color: var(--yellow); text-underline-offset: 0.2em; }
+.coffee-qr { flex: none; width: 6.5rem; padding: 0.35rem; border-radius: 0.75rem; background: var(--white); rotate: 4deg; }
+.colophon { margin-top: clamp(3rem, 6vw, 4.5rem); font-size: 0.9375rem; opacity: 0.75; }
+
+/* --------------------------------- Mobile --------------------------------- */
+@media (max-width: 760px) {
+    .lid { padding-bottom: 2rem; }
+    .topbar ul { gap: 0.8rem; font-size: 0.9375rem; }
+
+    h1 { font-size: 34vw; }
+    .lid-copy { flex: none; justify-content: flex-start; }
+
+    .stickers { position: relative; inset: auto; order: 2; height: 62vw; margin-top: 1.75rem; }
+    .sticker { --s: 21% !important; padding: 0.3em; font-size: 0.5625rem; }
+    .sticker:nth-child(1) { left: 1%; top: 3%; }
+    .sticker:nth-child(2) { left: 25%; top: 0; }
+    .sticker:nth-child(3) { left: 50%; top: 5%; }
+    .sticker:nth-child(4) { left: 75%; top: 0; }
+    .sticker:nth-child(5) { left: 12%; top: 34%; }
+    .sticker:nth-child(6) { left: 38%; top: 37%; }
+    .sticker:nth-child(7) { left: 63%; top: 33%; }
+    .sticker:nth-child(8) { left: 2%; top: 67%; }
+    .sticker:nth-child(9) { left: 27%; top: 69%; }
+    .sticker-badge { left: 56% !important; top: 66% !important; --s: 27% !important; font-size: 0.8125rem; }
+
+    .bench-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .bench-text { grid-column: 1 / -1; grid-row: 2; }
+    .bench-state { font-size: 0.9375rem; }
+
+    .ledger thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .ledger, .ledger tbody { display: block; }
+    .ledger tr {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        justify-content: start;
+        gap: 0.1rem 1.25rem;
+        padding-block: 0.8rem;
+        border-bottom: 1px solid rgb(10 16 53 / 0.25);
+    }
+    .ledger tbody { border-top: 3px solid var(--ink); }
+    .ledger tbody th { grid-column: 1 / -1; width: auto; padding: 0; border: 0; }
+    .ledger td { padding: 0; border: 0; }
+    .ledger td.none { display: none; }
+
+    .closing-grid { grid-template-columns: minmax(0, 1fr); }
+}

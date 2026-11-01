@@ -14,7 +14,7 @@
      <script src="../script.js"></script><!-- one-level-deep sub-pages    -->
 
    Depth handling: the injector auto-detects whether the page lives in a
-   subfolder (apps/, support/, privacy/) by inspecting location.pathname.
+   subfolder (apps/, support/, privacy/, terms/) by inspecting location.pathname.
    - Root page  -> internal links resolve as  index.html#apps
    - Sub-page   -> internal links resolve as  ../index.html#apps
    You can also force a root prefix explicitly by setting
@@ -64,7 +64,7 @@ function computeRootPrefix() {
 
     // Detect known sub-folders in the path.
     const path = location.pathname.replace(/\/+$/, '');
-    const subfolders = ['/apps/', '/support/', '/privacy/'];
+    const subfolders = ['/apps/', '/support/', '/privacy/', '/terms/'];
     const inSub = subfolders.some(seg => path.includes(seg));
     return inSub ? '../' : '';
 }

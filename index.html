@@ -2,303 +2,160 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sergio Pardo - Desarrollador de aplicaciones móviles Android y Flutter">
-    <meta name="theme-color" content="#2563eb">
-    <title>Sergio Pardo - Desarrollador Android & Flutter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title class="lang" data-es="Sergio Pardo, desarrollador de apps móviles" data-en="Sergio Pardo, mobile app developer">Sergio Pardo, desarrollador de apps móviles</title>
+    <meta name="description" content="Sergio Pardo hace apps móviles desde Colombia. Proyectos en curso, herramientas y las políticas, términos y soporte de cada app.">
+    <meta name="theme-color" content="#1a3de4">
+    <link rel="canonical" href="https://sapardo10.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sergio Pardo, desarrollador de apps móviles">
+    <meta property="og:description" content="Proyectos en curso, herramientas y documentos legales de mis apps.">
+    <meta property="og:url" content="https://sapardo10.github.io/">
     <link rel="icon" type="image/png" href="assets/icons/favicon.png">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="stars-background"></div>
+    <a class="skip-link lang" href="#main" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
 
-    <!-- Shared navbar injected by script.js -->
-    <div id="site-nav"></div>
+    <header class="lid" id="inicio">
+        <nav class="topbar" aria-label="Principal">
+            <div class="language-switcher">
+                <button class="lang-btn" type="button" onclick="setLanguage('es')">ES</button>
+                <button class="lang-btn" type="button" onclick="setLanguage('en')">EN</button>
+            </div>
+            <ul>
+                <li><a href="#apps" class="lang" data-es="Apps" data-en="Apps">Apps</a></li>
+                <li><a href="#taller" class="lang" data-es="Taller" data-en="Workshop">Taller</a></li>
+                <li><a href="#legal" class="lang" data-es="Políticas" data-en="Policies">Políticas</a></li>
+                <li><a href="#contacto" class="lang" data-es="Contacto" data-en="Contact">Contacto</a></li>
+            </ul>
+        </nav>
 
-    <header class="hero" id="inicio">
-        <div class="hero-aurora" aria-hidden="true">
-            <span class="aurora-blob blob-1"></span>
-            <span class="aurora-blob blob-2"></span>
-            <span class="aurora-blob blob-3"></span>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <span class="eyebrow lang" data-es="Android & Flutter" data-en="Android & Flutter"></span>
-                <h1 class="hero-title"><span class="lang" data-es="Hola, soy" data-en="Hi, I am"></span> <span class="gradient-text">Sergio Pardo</span></h1>
-                <p class="hero-subtitle lang" data-es="Desarrollador de aplicaciones móviles Android y Flutter" data-en="Android and Flutter Mobile App Developer"></p>
-                <p class="hero-description lang" data-es="Diseño y construyo aplicaciones limpias, útiles y bien pulidas que llegan a usuarios de todo el mundo en Google Play." data-en="I design and build clean, useful and well-polished apps that reach users around the world on Google Play."></p>
-                <div class="hero-actions">
-                    <a href="#apps" class="btn btn-primary lang" data-es="Explorar mis apps" data-en="Explore my apps"></a>
-                    <a href="#contacto" class="btn btn-secondary lang" data-es="Contacto" data-en="Get in touch"></a>
-                </div>
-                <div class="hero-strip">
-                    <span class="hero-strip-label lang" data-es="Disponibles en Google Play" data-en="Available on Google Play"></span>
-                    <div class="hero-strip-icons">
-                        <img src="assets/images/apps/stampway.png" alt="Stampway" loading="lazy">
-                        <img src="assets/images/apps/walkcast.png" alt="WalkCast" loading="lazy">
-                        <img src="assets/images/apps/pingpartner.png" alt="PingPartner" loading="lazy">
-                        <img src="assets/images/apps/triplist.png" alt="TripList" loading="lazy">
-                        <img src="assets/images/apps/pausactive.png" alt="Pausactive" loading="lazy">
-                    </div>
-                </div>
+        <div class="lid-copy">
+            <h1 translate="no"><span>Sergio</span> <span>Pardo</span></h1>
+            <p class="lead lang" data-es="Hago apps móviles desde Colombia. Las publicadas viven en iziapps; aquí queda el taller." data-en="I make mobile apps from Colombia. The released ones live at iziapps; this is the workshop.">Hago apps móviles desde Colombia. Las publicadas viven en iziapps; aquí queda el taller.</p>
+            <div class="actions">
+                <a class="button button-yellow lang" href="https://iziapps.com.co/" data-es="Ver las apps" data-en="See the apps">Ver las apps</a>
+                <a class="button button-line lang" href="#legal" data-es="Políticas y términos" data-en="Policies and terms">Políticas y términos</a>
             </div>
         </div>
+
+        <!-- Every app icon is a real link. Mouse users can also drag them (home.js). -->
+        <div class="stickers" id="stickers">
+            <a class="sticker" style="--x:62%;--y:11%;--s:15.5%;--r:-8deg;--i:0" href="https://walkcast.iziapps.com.co/"><img src="assets/images/apps/stickers/walkcast.png" width="240" height="240" alt="WalkCast"></a>
+            <a class="sticker" style="--x:79%;--y:16%;--s:13%;--r:7deg;--i:1" href="https://stampway.iziapps.com.co/"><img src="assets/images/apps/stickers/stampway.png" width="240" height="240" alt="Stampway"></a>
+            <a class="sticker" style="--x:70%;--y:37%;--s:14%;--r:5deg;--i:2" href="https://triplist.iziapps.com.co/"><img src="assets/images/apps/stickers/triplist.png" width="240" height="240" alt="TripList"></a>
+            <a class="sticker" style="--x:85%;--y:44%;--s:11%;--r:-11deg;--i:3" href="https://pingpartner.iziapps.com.co/"><img src="assets/images/apps/stickers/pingpartner.png" width="240" height="240" alt="PingPartner"></a>
+            <a class="sticker" style="--x:54%;--y:49%;--s:12%;--r:-5deg;--i:4" href="https://pausactive.iziapps.com.co/"><img src="assets/images/apps/stickers/pausactive.png" width="240" height="240" alt="Pausactive"></a>
+            <a class="sticker" style="--x:67%;--y:69%;--s:11%;--r:10deg;--i:5" href="https://picafija.iziapps.com.co/"><img src="assets/images/apps/stickers/picafija.png" width="240" height="240" alt="Picafija"></a>
+            <a class="sticker" style="--x:80%;--y:71%;--s:10.5%;--r:-6deg;--i:6" href="https://iziqr.iziapps.com.co/"><img src="assets/images/apps/stickers/iziqr.png" width="240" height="240" alt="iziQR"></a>
+            <a class="sticker" style="--x:50%;--y:75%;--s:10%;--r:6deg;--i:7" href="https://droidmount.iziapps.com.co/"><img src="assets/images/apps/droidmount.svg" width="240" height="240" alt="DroidMount"></a>
+            <a class="sticker" style="--x:90%;--y:9%;--s:8.5%;--r:12deg;--i:8" href="apps/travio.html"><img src="assets/images/apps/stickers/travio.png" width="240" height="240" alt="Travio"></a>
+            <span class="sticker sticker-badge lang" aria-hidden="true" style="--x:43%;--y:36%;--s:11%;--r:-14deg;--i:9" data-es="Hecho en Colombia" data-en="Made in Colombia">Hecho en Colombia</span>
+        </div>
+        <p class="drag-hint lang" data-es="Son stickers: muévelos o ábrelos." data-en="They're stickers: move them or open them.">Son stickers: muévelos o ábrelos.</p>
     </header>
 
-    <!-- ============================ Featured apps ============================ -->
-    <section class="apps-section page-section" id="apps">
-        <div class="container">
-            <h2 class="section-title lang" data-es="Mis Aplicaciones" data-en="My Applications"></h2>
-            <p class="section-subtitle lang" data-es="Aplicaciones publicadas y disponibles en Google Play Store." data-en="Published apps available on Google Play Store."></p>
-
-            <div class="apps-grid">
-                <!-- Stampway -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/stampway.png" alt="Stampway" class="app-icon-img">
-                        <h3 class="app-name">Stampway</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Tu pasaporte digital: colecciona sellos de entrada y salida de cada país que visitas." data-en="Your digital passport: collect entry & exit stamps from every country you visit."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Viajes" data-en="Travel"></span>
-                        <span class="tag lang" data-es="Productividad" data-en="Productivity"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/stampway.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.stampway" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
-                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
-                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- WalkCast -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/walkcast.png" alt="WalkCast" class="app-icon-img">
-                        <h3 class="app-name">WalkCast</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Tu guía turístico con IA: genera y narra la historia de cualquier lugar." data-en="Your AI tour guide: generates and narrates the history of any place."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Viajes" data-en="Travel"></span>
-                        <span class="tag lang" data-es="IA" data-en="AI"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/walkcast.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <a href="https://play.google.com/store/apps/details?id=com.walkcast.walkcast" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
-                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
-                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- PingPartner -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/pingpartner.png" alt="PingPartner" class="app-icon-img">
-                        <h3 class="app-name">PingPartner</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Envía un 'ping' a tu pareja para decirle que piensas en ella." data-en="Send your partner a 'ping' to let them know you're thinking of them."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Social" data-en="Social"></span>
-                        <span class="tag lang" data-es="Pareja" data-en="Couples"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/pingpartner.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.pingpartner" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
-                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
-                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- TripList -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/triplist.png" alt="TripList" class="app-icon-img">
-                        <h3 class="app-name">TripList</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Listas de equipaje inteligentes que aprenden de tus viajes anteriores." data-en="Smart packing lists that learn from your past trips."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Viajes" data-en="Travel"></span>
-                        <span class="tag lang" data-es="Organizador" data-en="Organizer"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/triplist.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.triplist" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
-                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
-                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Pausactive -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/pausactive.png" alt="Pausactive" class="app-icon-img">
-                        <h3 class="app-name">Pausactive</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Recordatorios para tomar pausas activas y saludables mientras trabajas." data-en="Reminders to take healthy active breaks while you work."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Salud" data-en="Health"></span>
-                        <span class="tag lang" data-es="Productividad" data-en="Productivity"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/pausactive.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <a href="https://play.google.com/store/apps/details?id=com.iziapps.pausactive.pausactive" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
-                            <svg class="play-icon" viewBox="0 0 512 512" fill="none" aria-hidden="true"><path d="M48 59v394c0 8 4 15 10 19l219-216L58 40c-6 4-10 11-10 19z" fill="#34A853"/><path d="M390 196l-78-45-58 57 58 57 79-45c14-9 14-15-1-24z" fill="#FBBC04"/><path d="M58 40l219 168 58-57L100 18C84 9 70 14 58 40z" fill="#EA4335"/><path d="M58 472l219-168 57 57-234 135c-16 9-30 4-42-24z" fill="#4285F4"/></svg>
-                            <span class="play-label"><small class="lang" data-es="DISPONIBLE EN" data-en="GET IT ON"></small><strong>Google Play</strong></span>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ Tools & open source ============================ -->
-    <section class="page-section" id="tools">
-        <div class="container">
-            <h2 class="section-title lang" data-es="Herramientas" data-en="Tools"></h2>
-            <p class="section-subtitle lang" data-es="Proyectos de código abierto, más allá de las apps móviles." data-en="Open-source projects, beyond mobile apps."></p>
-
-            <div class="apps-grid">
-                <!-- DroidMount -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/droidmount.svg" alt="DroidMount" class="app-icon-img">
-                        <h3 class="app-name">DroidMount</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Monta tu Android como una unidad de Finder en tu Mac, con lectura y escritura completas — sin el paywall de MacDroid." data-en="Mount your Android phone as a Finder drive on your Mac, with full read/write — no MacDroid paywall."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="macOS" data-en="macOS"></span>
-                        <span class="tag lang" data-es="Código abierto" data-en="Open source"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/droidmount.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <a href="https://github.com/sapardo10/DroidMount/releases/latest" class="play-button" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.01-2.11-3.16.69-3.83-1.34-3.83-1.34-.52-1.3-1.26-1.65-1.26-1.65-1.03-.71.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.65 1.24 3.3.94.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.11 0 1.53-.01 2.75-.01 3.13 0 .3.2.66.79.55 4.51-1.51 7.77-5.76 7.77-10.78C23.02 5.24 18.27.5 12 .5z"/></svg>
-                            <span class="play-label"><small class="lang" data-es="CÓDIGO EN" data-en="VIEW ON"></small><strong>GitHub</strong></span>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ Coming soon ============================ -->
-    <section class="page-section" id="proximamente">
-        <div class="container">
-            <h2 class="section-title lang" data-es="Próximamente" data-en="Coming Soon"></h2>
-            <p class="section-subtitle lang" data-es="Nuevas apps en las que estoy trabajando." data-en="New apps I'm currently working on."></p>
-
-            <div class="apps-grid">
-                <!-- iziQR -->
-                <article class="coming-soon-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/iziqr.png" alt="iziQR" class="app-icon-img">
-                        <h3 class="app-name">iziQR</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Escáner QR: escanea, guarda y comparte." data-en="QR scanner: scan, save, share."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Utilidades" data-en="Utilities"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/iziqr.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
-                    </div>
-                </article>
-
-                <!-- Travio -->
-                <article class="coming-soon-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/travio.png" alt="Travio" class="app-icon-img">
-                        <h3 class="app-name">Travio</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Tu diario local de viajes, mapas y recuerdos." data-en="Your local travel journal, maps and memories."></p>
-                    <a href="apps/travio.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details">Ver detalles</a>
-                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
-                </article>
-
-                <!-- Caurora (no icon - gradient placeholder) -->
-                <article class="coming-soon-card">
-                    <div class="app-card-head">
-                        <div class="app-icon"></div>
-                        <h3 class="app-name">Caurora</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Cámara para fotografía de auroras con controles manuales (iOS)." data-en="Aurora photography camera with manual controls (iOS)."></p>
-                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
-                </article>
-
-                <!-- supa_reminder (no icon - gradient placeholder) -->
-                <article class="coming-soon-card">
-                    <div class="app-card-head">
-                        <div class="app-icon"></div>
-                        <h3 class="app-name">supa_reminder</h3>
-                    </div>
-                    <p class="app-description lang" data-es="Recordatorios contextuales por tiempo y ubicación." data-en="Context-aware reminders by time and location."></p>
-                    <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
-                </article>
-
-                <!-- Picafija -->
-                <article class="coming-soon-card">
-                    <div class="app-card-head">
-                        <img src="assets/images/apps/picafija.png" alt="Picafija" class="app-icon-img">
-                        <h3 class="app-name">Picafija</h3>
-                    </div>
-                    <p class="app-description lang" data-es="El clásico juego colombiano de Picas y Fijas, por Bluetooth local o contra la IA." data-en="The classic Colombian Picas y Fijas game, over local Bluetooth or against the AI."></p>
-                    <div class="app-tags">
-                        <span class="tag lang" data-es="Juegos" data-en="Games"></span>
-                    </div>
-                    <div class="app-card-actions">
-                        <a href="apps/picafija.html" class="btn btn-secondary lang" data-es="Ver detalles" data-en="View details"></a>
-                        <span class="coming-soon-badge lang" data-es="Próximamente" data-en="Coming soon"></span>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================= Contact & support ======================= -->
-    <div class="sections-wrapper">
-        <section class="contact-section" id="contacto">
-            <div class="container">
-                <h2 class="section-title lang" data-es="Ponte en Contacto" data-en="Get in Touch"></h2>
-                <p class="section-subtitle lang" data-es="¿Tienes alguna pregunta? Me encantaría saber de ti." data-en="Do you have any questions? I'd love to hear from you."></p>
-
-                <div class="contact-content">
-                    <a href="mailto:carnifis@gmail.com" class="email-link">
-                        <span class="email-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
-                        <span class="email-text">carnifis@gmail.com</span>
-                    </a>
-                    <p class="contact-hint lang" data-es="Haz clic para enviarme un correo directo" data-en="Click to send me an email directly"></p>
+    <main id="main">
+        <section class="moved" id="apps" aria-labelledby="moved-title">
+            <div class="wrap">
+                <h2 id="moved-title" class="lang" data-es="Las apps se mudaron." data-en="The apps have moved.">Las apps se mudaron.</h2>
+                <div class="moved-body">
+                    <p class="lang" data-es="Fichas, descargas y novedades están ahora en un solo lugar." data-en="Listings, downloads and news are now in one place.">Fichas, descargas y novedades están ahora en un solo lugar.</p>
+                    <a class="address" href="https://iziapps.com.co/" translate="no">iziapps.com.co</a>
                 </div>
             </div>
         </section>
 
-        <section class="coffee-section" id="cafe">
-            <div class="container">
-                <h2 class="section-title lang" data-es="Apoya mi trabajo" data-en="Support my work"></h2>
-                <p class="section-subtitle lang" data-es="Si te gustan mis aplicaciones, considera apoyarme." data-en="If you like my apps, consider supporting me."></p>
+        <section class="workshop" id="taller" aria-labelledby="workshop-title">
+            <div class="wrap">
+                <h2 id="workshop-title" class="lang" data-es="En el taller" data-en="In the workshop">En el taller</h2>
+                <p class="section-note lang" data-es="Lo que todavía no se ha mudado." data-en="What hasn't moved yet.">Lo que todavía no se ha mudado.</p>
 
-                <div class="coffee-content">
-                    <div class="coffee-qr">
-                        <img src="assets/images/qr-code.png" alt="Buy me a coffee QR" class="qr-image">
-                    </div>
-                    <div class="coffee-info">
-                        <p class="coffee-text lang" data-es="Puedes comprarme un café en" data-en="You can buy me a coffee at"></p>
-                        <a href="https://buymeacoffee.com/carnifis" target="_blank" rel="noopener noreferrer" class="coffee-link">buymeacoffee.com/carnifis</a>
-                    </div>
-                </div>
+                <ol class="bench">
+                    <li>
+                        <a class="bench-row" href="postal-code.html">
+                            <span class="bench-name lang" data-es="Código postal" data-en="Postal code">Código postal</span>
+                            <span class="bench-text lang" data-es="Encuentra el código postal de una dirección o de tu ubicación." data-en="Find the postal code for an address or your current location.">Encuentra el código postal de una dirección o de tu ubicación.</span>
+                            <span class="bench-state is-live lang" data-es="Ábrelo" data-en="Open it">Ábrelo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bench-row" href="apps/travio.html">
+                            <span class="bench-name" translate="no">Travio</span>
+                            <span class="bench-text lang" data-es="Tu diario de viajes, mapas y recuerdos, guardados en tu dispositivo." data-en="Your travel journal, maps and memories, stored on your device.">Tu diario de viajes, mapas y recuerdos, guardados en tu dispositivo.</span>
+                            <span class="bench-state lang" data-es="Próximamente" data-en="Coming soon">Próximamente</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="bench-row">
+                            <span class="bench-name" translate="no">Caurora</span>
+                            <span class="bench-text lang" data-es="Cámara para fotografiar auroras con controles manuales, para iOS." data-en="A camera for photographing auroras with manual controls, for iOS.">Cámara para fotografiar auroras con controles manuales, para iOS.</span>
+                            <span class="bench-state lang" data-es="Próximamente" data-en="Coming soon">Próximamente</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bench-row">
+                            <span class="bench-name" translate="no">supa_reminder</span>
+                            <span class="bench-text lang" data-es="Recordatorios que saltan según la hora y el lugar." data-en="Reminders that fire by time and place.">Recordatorios que saltan según la hora y el lugar.</span>
+                            <span class="bench-state lang" data-es="Próximamente" data-en="Coming soon">Próximamente</span>
+                        </div>
+                    </li>
+                </ol>
             </div>
         </section>
-    </div>
 
-    <!-- Shared footer injected by script.js -->
-    <div id="site-footer"></div>
+        <section class="legal" id="legal" aria-labelledby="legal-title">
+            <div class="wrap">
+                <h2 id="legal-title" class="lang" data-es="Políticas y términos" data-en="Policies and terms">Políticas y términos</h2>
+                <p class="section-note lang" data-es="Los documentos de cada app. Estas direcciones no cambian." data-en="The documents for each app. These addresses aren't changing.">Los documentos de cada app. Estas direcciones no cambian.</p>
+
+                <table class="ledger">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="lang" data-es="App" data-en="App">App</th>
+                            <th scope="col" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</th>
+                            <th scope="col" class="lang" data-es="Términos" data-en="Terms">Términos</th>
+                            <th scope="col" class="lang" data-es="Soporte" data-en="Support">Soporte</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledger-body">
+                        <tr><th scope="row" translate="no">Caurora</th><td><a href="privacy/caurora.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td class="none"></td><td><a href="support/caurora.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">iziQR</th><td><a href="privacy/iziqr.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td><a href="terms/iziqr.html" class="lang" data-es="Términos" data-en="Terms">Términos</a></td><td><a href="support/iziqr.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">Pausactive</th><td><a href="privacy/pausactive.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td class="none"></td><td><a href="support/pausactive.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">Picafija</th><td><a href="privacy/picafija.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td class="none"></td><td><a href="support/picafija.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">PingPartner</th><td><a href="privacy/pingpartner.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td class="none"></td><td><a href="support/pingpartner.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">Stampway</th><td><a href="privacy/stampway.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td><a href="terms/stampway.html" class="lang" data-es="Términos" data-en="Terms">Términos</a></td><td><a href="support/stampway.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">Travio</th><td><a href="privacy/travio.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td class="none"></td><td><a href="support/travio.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">TripList</th><td><a href="privacy/triplist.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td class="none"></td><td><a href="support/triplist.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                        <tr><th scope="row" translate="no">WalkCast</th><td><a href="privacy/walkcast.html" class="lang" data-es="Privacidad" data-en="Privacy">Privacidad</a></td><td><a href="terms/walkcast.html" class="lang" data-es="Términos" data-en="Terms">Términos</a></td><td><a href="support/walkcast.html" class="lang" data-es="Soporte" data-en="Support">Soporte</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="closing">
+        <div class="wrap closing-grid">
+            <section id="contacto" aria-labelledby="contact-title">
+                <h2 id="contact-title" class="lang" data-es="Escríbeme" data-en="Write to me">Escríbeme</h2>
+                <a class="mail" href="mailto:carnifis@gmail.com" translate="no">carnifis@gmail.com</a>
+            </section>
+            <section class="coffee" id="cafe" aria-labelledby="coffee-title">
+                <img src="assets/images/qr-code.png" width="700" height="700" loading="lazy" alt="" class="coffee-qr">
+                <div>
+                    <h2 id="coffee-title" class="lang" data-es="¿Te sirvió algo de esto?" data-en="Found any of this useful?">¿Te sirvió algo de esto?</h2>
+                    <a href="https://buymeacoffee.com/carnifis" target="_blank" rel="noopener noreferrer" class="lang" data-es="Invítame un café" data-en="Buy me a coffee">Invítame un café</a>
+                </div>
+            </section>
+        </div>
+        <p class="wrap colophon">&copy; 2026 Sergio Pardo</p>
+    </footer>
 
     <script src="script.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>
